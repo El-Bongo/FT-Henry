@@ -14,7 +14,7 @@ function DecimalABinario(num) {
   // tu codigo aca
   let arr = [];
   while (num >= 1) {
-    arr.unshift(num % 2 + "");
+    arr.unshift(num % 2);
     num = Math.floor(num / 2);
   }
   return arr.join("");

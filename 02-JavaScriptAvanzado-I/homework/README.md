@@ -7,6 +7,8 @@ Determiná que será impreso en la consola, sin ejecutar el código.
 
 > Investiga cuál es la diferencia entre declarar una variable con `var` y directamente asignarle un valor.
 
+Var esa una variable global que tiene propiedades y funciona en todo el window. Sin el var, solamente se declara el valor y se puede sobreescribir.
+
 ```javascript
 x = 1;
 var a = 5;
@@ -28,6 +30,8 @@ c(8,9,10);
 console.log(b);
 console.log(x);
 ```
+10-8-8-9-10-1
+
 
 ```javascript
 console.log(bar);
@@ -37,14 +41,18 @@ function foo() { console.log('Hola!'); }
 var bar = 1;
 baz = 2;
 ```
+undefined-error-(hola!)
+
 
 ```javascript
 var instructor = "Tony";
 if(true) {
-    var instructor = "Franco";
+   var instructor = "Franco";
 }
 console.log(instructor);
 ```
+Franco
+
 
 ```javascript
 var instructor = "Tony";
@@ -57,6 +65,8 @@ console.log(instructor);
 })();
 console.log(instructor);
 ```
+Tony-Franco-Tony
+
 
 ```javascript
 var instructor = "Tony";
@@ -70,27 +80,30 @@ if (true) {
 console.log(instructor);
 console.log(pm);
 ```
+The Flash - Reverse Flash - The Flash - Franco
+
+
 ### Coerción de Datos
 
 ¿Cuál crees que será el resultado de la ejecución de estas operaciones?:
 
 ```javascript
-6 / "3"
-"2" * "3"
-4 + 5 + "px"
-"$" + 4 + 5
-"4" - 2
-"4px" - 2
-7 / 0
-{}[0]
-parseInt("09")
-5 && 2
-2 && 5
-5 || 0
-0 || 5
-[3]+[3]-[10]
-3>2>1
-[] == ![]
+6 / "3"   ////  2
+"2" * "3" //// 6
+4 + 5 + "px"  //// 9px
+"$" + 4 + 5   ///// $45
+"4" - 2    ///// 2
+"4px" - 2   //// NaN
+7 / 0    ////// Infinity
+{}[0]   ///// [0]
+parseInt("09")   //// 9
+5 && 2   ////  2
+2 && 5   //// 5
+5 || 0  //// 5 
+0 || 5   //// 5
+[3]+[3]-[10] //// 23
+3>2>1   //// false
+[] == ![]   ///// true
 ```
 
 > Si te quedó alguna duda repasá con [este artículo](http://javascript.info/tutorial/object-conversion).
@@ -113,6 +126,10 @@ function test() {
 
 test();
 ```
+undefined - 2 
+La variable a esta definida despues de ejecutar el "console.log(a)" y el hoisting mueve la variable al comienzo de la funcion pero
+no reconoce su valor. Y foo se ejecuta en el "console.log(foo())" e devuelve 2.
+
 
 Y el de este código? :
 
@@ -129,6 +146,7 @@ function getFood(food) {
 
 getFood(false);
 ```
+Undefined 
 
 
 ### This
@@ -153,6 +171,9 @@ var test = obj.prop.getFullname;
 
 console.log(test());
 ```
+Aurelio de rosa porque esta llamando a la funcion dentro de el objeto que esta dentro de otro objeto.
+Y juan perez porque esta definiendo test en el contexto global osea que esta apuntando a window.
+
 
 ### Event loop
 
@@ -168,3 +189,4 @@ function printing() {
 
 printing();
 ```
+1 4 3 2
